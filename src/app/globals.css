@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dot-color: rgba(0,0,0,0.04);
+  --dot-size: 24px;
+  --dot-radius: 2px;
 }
 
 @theme inline {
@@ -16,11 +19,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --dot-color: rgba(255,255,255,0.06);
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
