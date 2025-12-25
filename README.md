@@ -70,29 +70,82 @@ Want to run this locally? Here's how:
 
 ---
 
-## 📚 How to Use
+## 📚 Widget Testing Guide
 
-### 1. Adding a Stock Price (Card)
-- Click **"+ Add Widget"**.
-- Select **Card**.
-- Choose **Alpha Vantage** -> **Stock Quote**.
-- Click **Test API**.
-- In the explorer, click the `price` field and hit **"Add Field"**.
-- Save it!
+The Widget Builder features **Smart Presets** that automatically filter available APIs based on the selected widget type. Here is how to test each type with specific examples.
 
-### 2. Adding a History Chart
-- Click **"+ Add Widget"**.
-- Select **Chart**.
-- Choose **Crypto** -> **Bitcoin History (7D)**.
-- The builder automatically maps the X-axis (Time) and Y-axis (Price).
-- Save it to see a beautiful trend line!
+### 1. Card Widget (Single Value)
+*Best for: Current Price, Market Status, Portfolio Value*
 
-### 3. Adding a Market Table
-- Click **"+ Add Widget"**.
-- Select **Table**.
-- Choose **IndianAPI** -> **Top Gainers**.
-- Select the `data` array and pick columns like `symbol` and `LTP`.
-- Save it to see a sortable list.
+**How to Test:**
+1. Select **Card** widget type.
+2. Open **Browse Presets** (filtered for Card-compatible APIs).
+3. Select an API and click **Test API**.
+4. In the JSON Explorer, click a value (e.g., `145.32`) and click **Add Field**.
+
+**Examples:**
+- **Stock Price (Alpha Vantage):**
+  - Preset: `Stock Quote (IBM)`
+  - Map: `Global Quote` -> `05. price`
+- **Crypto Price (CoinGecko):**
+  - Preset: `Bitcoin Price`
+  - Map: `bitcoin` -> `usd`
+- **Market Status (NSE):**
+  - Preset: `Market Status`
+  - Map: `marketState` -> `0` -> `marketStatus`
+- **Forex Rate (Alpha Vantage):**
+  - Preset: `Forex Rate (USD/EUR)`
+  - Map: `Realtime Currency Exchange Rate` -> `5. Exchange Rate`
+
+### 2. Chart Widget (Time Series)
+*Best for: Price History, Trends, Analytics*
+
+**How to Test:**
+1. Select **Chart** widget type.
+2. Open **Browse Presets** (filtered for Chart-compatible APIs).
+3. Select an API and click **Test API**.
+4. Set **Data Array Path** (the list of data points).
+5. Select **X-Axis** (Time/Label) and **Y-Axis** (Value) fields.
+
+**Examples:**
+- **Bitcoin History (CoinGecko):**
+  - Preset: `Bitcoin History (7D)`
+  - Root Path: `prices`
+  - X-Axis: `0` (Timestamp)
+  - Y-Axis: `1` (Price)
+- **Stock History (Alpha Vantage):**
+  - Preset: `Time Series Daily`
+  - Root Path: `Time Series (Daily)`
+  - Y-Axis: `4. close` (X-Axis auto-detected from keys)
+- **Recommendation Trends (Finnhub):**
+  - Preset: `Recommendation Trends`
+  - Root Path: `(root array)`
+  - X-Axis: `period`
+  - Y-Axis: `buy`
+
+### 3. Table Widget (List of Items)
+*Best for: Top Lists, News, Portfolios*
+
+**How to Test:**
+1. Select **Table** widget type.
+2. Open **Browse Presets** (filtered for Table-compatible APIs).
+3. Select an API and click **Test API**.
+4. Set **Data Array Path** (the list of items).
+5. Click **Add Column** for each field you want to show.
+
+**Examples:**
+- **Top Cryptos (CoinGecko):**
+  - Preset: `Top 10 Cryptos`
+  - Root Path: `(root array)`
+  - Columns: `name`, `current_price`, `price_change_percentage_24h`
+- **Market News (Finnhub):**
+  - Preset: `Market News`
+  - Root Path: `(root array)`
+  - Columns: `headline`, `source`, `datetime`
+- **Top Gainers (NSE):**
+  - Preset: `Top Gainers`
+  - Root Path: `data`
+  - Columns: `symbol`, `ltp`, `perChange`
 
 ---
 
