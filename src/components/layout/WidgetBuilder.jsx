@@ -376,6 +376,12 @@ const WidgetBuilder = ({ onClose, initialWidget }) => {
                 );
               })}
             </div>
+            {/* Contextual helper text */}
+            <p className={cn('mt-3 text-sm italic', isDarkMode ? 'text-gray-400' : 'text-gray-500')}>
+              {config.type === 'card' && 'Cards: best for single values (price, change). Test an API and add the field you want to show.'}
+              {config.type === 'chart' && 'Charts: use historical/time-series endpoints. Set Data Array Path, then pick X (time) and Y (value).'}
+              {config.type === 'table' && 'Tables: select the array node as Data Array Path, then add columns from a sample item to build the table.'}
+            </p>
           </div>
 
           {/* Title & Refresh Interval */}
