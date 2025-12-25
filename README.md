@@ -9,8 +9,8 @@ The goal was to create something that feels professional yet is super easy to us
 ## Live Demo & Video
 > *Check out the live app and see it in action!*
 
-- **Live Site:** [Insert Vercel/Netlify Link Here]
-- **Demo Video:** [Insert YouTube/Loom Link Here]
+- **Live Site:** https://hkdgrowwassignment.vercel.app/
+- **Demo Video:** https://www.loom.com/share/29bcf6acd5e44c87a6c58249d2a79681
 
 ---
 
@@ -30,7 +30,7 @@ This is the heart of the app. I didn't want hardcoded widgets, so I built a dyna
 ###  **Real-Time & Robust**
 - **Auto-Refresh:** Set widgets to update every 10s, 1m, or 5m.
 - **CORS Proxy:** I built a custom internal proxy to bypass browser security restrictions, so you can fetch data from almost any external API without issues.
-- **Data Persistence:** Your layout is saved automatically. Refresh the page, and everything is exactly where you left it.
+- **Data Persistence:** Your layout is saved automatically. Refresh the page, and everything is exactly where you left it using browser cache.
 
 
 ---
