@@ -22,8 +22,6 @@ const REFRESH_INTERVALS = [
   { value: 600000, label: '10m' },
 ];
 
-// Preset API options - Finance APIs as per assignment (Alpha Vantage, Finnhub, IndianAPI)
-// NOTE: Replace 'demo' or placeholder API keys with your own keys from respective providers
 const PRESET_APIS = [
   {
     category: 'Custom',
@@ -32,7 +30,7 @@ const PRESET_APIS = [
     ],
   },
   {
-    category: '⭐ Alpha Vantage',
+    category: 'Alpha Vantage',
     apis: [
       { name: 'Stock Quote (IBM)', url: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=D2XAELWEY1SGFTVE', description: 'Real-time stock quote' },
       { name: 'Stock Quote (AAPL)', url: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=D2XAELWEY1SGFTVE', description: 'Apple stock quote' },
@@ -46,7 +44,7 @@ const PRESET_APIS = [
     ],
   },
   {
-    category: '⭐ Finnhub',
+    category: 'Finnhub',
     apis: [
       { name: 'Stock Quote', url: 'https://finnhub.io/api/v1/quote?symbol=AAPL&token=demo', description: 'Real-time quote (replace token)' },
       { name: 'Company Profile', url: 'https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=demo', description: 'Company info' },
@@ -59,7 +57,7 @@ const PRESET_APIS = [
     ],
   },
   {
-    category: '⭐ IndianAPI (NSE)',
+    category: 'IndianAPI (NSE)',
     apis: [
       { name: 'NIFTY 50', url: 'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY%2050', description: 'NIFTY 50 constituents' },
       { name: 'NIFTY Bank', url: 'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY%20BANK', description: 'Bank NIFTY stocks' },
@@ -456,7 +454,7 @@ const WidgetBuilder = ({ onClose, initialWidget }) => {
               {showPresets && (
                 <div
                   className={cn(
-                    'rounded-xl border p-3 max-h-[200px] overflow-auto',
+                    'rounded-xl border p-3 max-h-[320px] overflow-auto',
                     isDarkMode ? 'bg-gray-900/50 border-gray-700' : 'bg-white border-gray-200'
                   )}
                 >
@@ -492,7 +490,7 @@ const WidgetBuilder = ({ onClose, initialWidget }) => {
 
             <label className={cn('block text-sm font-semibold mb-3', labelClass)}>
               <Zap size={14} className="inline mr-1 text-amber-500" />
-              API Endpoint <span className="ml-2 text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full border border-green-200">🛡️ CORS Proxy Active</span>
+              API Endpoint
             </label>
             <div className="flex gap-2">
               <select
@@ -527,7 +525,7 @@ const WidgetBuilder = ({ onClose, initialWidget }) => {
               </button>
             </div>
             <div className={cn('text-xs mt-2 space-y-1', isDarkMode ? 'text-gray-500' : 'text-gray-400')}>
-              <p>💡 Try: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd</p>
+              <p>Try: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd</p>
               <p className="flex flex-wrap gap-2">
                 <span className="font-medium">Get API Keys:</span>
                 <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener" className="text-indigo-400 hover:underline">Alpha Vantage</a>
